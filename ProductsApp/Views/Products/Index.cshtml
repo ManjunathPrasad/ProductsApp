@@ -1,0 +1,23 @@
+﻿@model IEnumerable<ProductsApp.Models.Product>
+
+<h1>Product List</h1>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>@product.Id</td>
+                <td>@product.Name</td>
+                <td>@product.Price</td>
+                <td><a asp-action="Details" asp-route-id="@product.Id">Details</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
