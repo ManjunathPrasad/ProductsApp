@@ -11,4 +11,5 @@ bin/
 .vs/
 .vscode/
 *.log
-idea/
+.idea/
+config/
