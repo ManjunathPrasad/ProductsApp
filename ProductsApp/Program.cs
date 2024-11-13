@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Mvc;
 using ProductsApp.Service;
 
 namespace ProductsApp
@@ -19,18 +20,22 @@ namespace ProductsApp
             if (app.Environment.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseHsts();
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
-
+            app.UseHttpsRedirection();
             app.UseStaticFiles();
+
             app.UseRouting();
+
             app.UseAuthorization();
             
             app.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Product}/{action = Index}/{Id?}"
-                );
+                    //defaults: new {Controller = "Product", action = "Index"}
+            );
 
             app.Run();
         }

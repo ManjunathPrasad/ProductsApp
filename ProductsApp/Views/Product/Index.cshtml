@@ -15,8 +15,8 @@
             <tr>
                 <td>@product.Id</td>
                 <td>@product.Name</td>
-                <td>@product.Price</td>
-                <td><a asp-action="Details" asp-route-id="@product.Id">Details</a></td>
+                <td>@product.Price.ToString("C", new System.Globalization.CultureInfo("hi-IN"))</td>
+                <!-- <td><a asp-action="Details" asp-route-id="@product.Id">Details</a></td> -->
             </tr>
         }
     </tbody>

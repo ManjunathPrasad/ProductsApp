@@ -5,6 +5,7 @@ using System.Reflection.Metadata.Ecma335;
 
 namespace ProductsApp.Controllers
 {
+    [Route("Product")]
     public class ProductController : Controller
     {
         private readonly IProductService _productService;
@@ -14,16 +15,22 @@ namespace ProductsApp.Controllers
             _productService = productService;
         }
 
-        [HttpGet]
+        [HttpGet("")]
         public IActionResult Index()
         {
             //Get all the Products
-            //var products = _productService.GetAllProducts();
-            //return View();
-            return Content("Product Controller is working");
+            var products = _productService.GetAllProducts();
+    
+            if (products == null)
+            {
+                // Handle the null case, maybe redirect or show an error view.
+                return View("Error");  // or a view that handles empty products.
+            }
+            return View(products);
+            //return Content("Product Controller is working");
         }
 
-        [HttpGet]
+        [HttpGet("details/{id}")]
         public IActionResult Details(int id)
         {
             // Get the product by Id
@@ -37,12 +44,12 @@ namespace ProductsApp.Controllers
             return View(product);
         }
 
-        [HttpGet]
+        [HttpGet("Create")]
         public IActionResult Create()
         {
             return View();
         }
-        [HttpPost]
+        [HttpPost("Create1")]
         public IActionResult Create(Product product)
         {
             if (ModelState.IsValid)

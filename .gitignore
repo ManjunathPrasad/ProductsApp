@@ -1,0 +1,8 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/ProductsApp/bin/Debug/net8.0/ProductsApp.dll
+/ProductsApp/bin/Debug/net8.0/ProductsApp.exe
+/ProductsApp/bin/Debug/net8.0/ProductsApp.pdb
